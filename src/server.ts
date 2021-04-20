@@ -10,4 +10,4 @@ app.post("/", (req, res) => {
   return res.json({response: "Usuário salvo com sucesso!"})
 })
 
-app.listen(3000, () => console.log("O servidor está rodando na porta 3000"))
+app.listen(3333, () => console.log("O servidor está rodando na porta 3333"))
