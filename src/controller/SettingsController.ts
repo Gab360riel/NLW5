@@ -3,22 +3,22 @@ import { getCustomRepository } from 'typeorm';
 
 
 import { SettingsRepository } from '../repositories/SettingsRepository';
+import { SettingsService } from "../services/SettingsService";
 
 
 class SettingsController {
-    async store(req: Request, res: Response){
+    async store(req: Request, res: Response): Promise<Response>{
         const { username, chat} = req.body;
 
-        const settingsRepository = getCustomRepository(SettingsRepository);
+        const settingService = new SettingsService();
 
-        const settings =  settingsRepository.create({
-            username,
-            chat,
-        })
+        try {
+            const settings = await settingService.store({username, chat});
 
-        await settingsRepository.save(settings);
-
-        return res.json(settings);
+            return res.json(settings);
+        }catch(err) {
+            return res.status(400).json({error: err.message})
+        }
     }
 }
 
