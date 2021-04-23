@@ -4,9 +4,9 @@ import { Message } from '../entities/Message';
 import { MessagesRepository } from "../repositories/MessagesRepository";
 
 interface IMessageStore {
-    admin_id?: string,
-    text: string,
-    user_id: string,
+    admin_id?: string;
+    text: string;
+    user_id: string;
 }
 
 

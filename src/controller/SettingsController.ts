@@ -7,6 +7,17 @@ import { SettingsService } from "../services/SettingsService";
 
 
 class SettingsController {
+    async index(req: Request, res: Response) {
+        const { username } = req.params;
+
+        const settingsService = new SettingsService();
+
+        const settings = await settingsService.index(username);
+
+        return settings;
+    }
+
+
     async store(req: Request, res: Response): Promise<Response>{
         const { username, chat} = req.body;
 

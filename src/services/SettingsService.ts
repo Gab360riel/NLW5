@@ -16,6 +16,14 @@ class SettingsService{
 
     }
 
+    async index(username: string) {
+        const settings = await this.settingsRepository.findOne({
+            username
+        })
+
+        return settings;
+    }
+
     async store({chat, username}: ISettingsStore){
         const userAExists = await this.settingsRepository.findOne({
             where: { username }
