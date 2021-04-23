@@ -14,7 +14,7 @@ class SettingsController {
 
         const settings = await settingsService.index(username);
 
-        return settings;
+        return res.json(settings);
     }
 
 
