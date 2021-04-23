@@ -1,13 +1,6 @@
-import express from 'express';
+import { http } from './http';
 
-const app = express()
+import "./websocket/client";
+import "./websocket/admin";
 
-app.get("/", (req, res) => {
-  return res.json({response: "Hello World"})
-})
-
-app.post("/", (req, res) => {
-  return res.json({response: "Usuário salvo com sucesso!"})
-})
-
-app.listen(3000, () => console.log("O servidor está rodando na porta 3000"))
+http.listen(3333, () => console.log("O servidor está rodando na porta 3333"))
