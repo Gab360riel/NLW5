@@ -10,8 +10,9 @@ const settingsController = new SettingsController();
 const usersController = new UserController();
 const messageController = new MessagesController();
 
-routes.post("/settings/:username", settingsController.index);
+routes.get("/settings/:username", settingsController.index);
 routes.post("/settings", settingsController.store);
+routes.put("/settings/:username", settingsController.update);
 
 routes.post("/users", usersController.store);
 
